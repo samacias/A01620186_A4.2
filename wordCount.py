@@ -22,11 +22,11 @@ with open(filename, "r", encoding="utf-8") as file:
 end = time.time()
 elapsed = end - start
 
-for word in word_count:
-    print(word, ":", word_count[word])
+for word, count in word_count.items():
+    print(word, count)
 print("Time:", elapsed)
 
 with open("WordCountResults.txt", "w", encoding="utf-8") as out:
-    for word in word_count:
-        out.write(f"{word}: {word_count[word]}\n")
+    for word, count in word_count.items():
+        out.write(f"{word}: {count}\n")
     out.write(f"Time: {elapsed}\n")
