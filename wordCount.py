@@ -1,3 +1,6 @@
+"""Word Count Program"""
+# pylint: disable=invalid-name
+
 import sys
 import time
 
@@ -5,7 +8,7 @@ start = time.time()
 filename = sys.argv[1]
 word_count = {}
 
-with open(filename, "r") as file:
+with open(filename, "r", encoding="utf-8") as file:
     for line in file:
         words = line.split()
 
@@ -23,7 +26,7 @@ for word in word_count:
     print(word, ":", word_count[word])
 print("Time:", elapsed)
 
-with open("WordCountResults.txt", "w") as out:
+with open("WordCountResults.txt", "w", encoding="utf-8") as out:
     for word in word_count:
         out.write(f"{word}: {word_count[word]}\n")
     out.write(f"Time: {elapsed}\n")
