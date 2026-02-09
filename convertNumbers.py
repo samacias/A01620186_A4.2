@@ -8,6 +8,7 @@ HEX_DIGITS = "0123456789ABCDEF"
 
 
 def reverse_text(text: str) -> str:
+    """Reverse the given text string."""
     reversed_text = ""
     i = len(text) - 1
     while i >= 0:
@@ -17,6 +18,7 @@ def reverse_text(text: str) -> str:
 
 
 def to_binary(number: int) -> str:
+    """Convert the given integer number to its binary."""
     if number == 0:
         return "0"
 
@@ -39,6 +41,7 @@ def to_binary(number: int) -> str:
 
 
 def to_hexadecimal(number: int) -> str:
+    """Convert the given integer number to its hexadecimal."""
     if number == 0:
         return "0"
 
@@ -58,6 +61,7 @@ def to_hexadecimal(number: int) -> str:
 
 
 def main() -> None:
+    """Main function to read numbers from a file and convert them."""
     if len(sys.argv) < 2:
         print("Usage: python convertNumbers.py fileWithData.txt")
         return
