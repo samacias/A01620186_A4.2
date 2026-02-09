@@ -1,3 +1,6 @@
+"""Convert numbers from a file to binary and hexadecimal."""
+# pylint: disable=invalid-name
+
 import sys
 import time
 
