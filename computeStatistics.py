@@ -1,5 +1,5 @@
 """Compute statistics from a file of numbers."""
-
+# pylint: disable=invalid-name
 import sys
 import time
 
@@ -14,7 +14,7 @@ with open(filname, 'r', encoding='utf-8') as file:
             number = float(line.strip())
             numbers.append(number)
         except ValueError:
-            print(f"Invalid data skipped:", line.strip())
+            print("Invalid data skipped:", line.strip())
 
 # Calculate statistics
 # Mean
@@ -24,19 +24,19 @@ for num in numbers:
 mean = total / len(numbers)
 
 # Median
-n = len(numbers)
+count = len(numbers)
 
-for i in range(n):
-    for j in range(i + 1, n):
+for i in range(count):
+    for j in range(i + 1, count):
         if numbers[i] > numbers[j]:
             temp = numbers[i]
             numbers[i] = numbers[j]
             numbers[j] = temp
 
-if n % 2 == 0:
-    median = (numbers[n // 2 - 1] + numbers[n // 2]) / 2
+if count % 2 == 0:
+    median = (numbers[count // 2 - 1] + numbers[count // 2]) / 2
 else:
-    median = numbers[n // 2]
+    median = numbers[count // 2]
 
 # Mode
 freq = {}
@@ -50,9 +50,9 @@ for num in numbers:
 max_count = 0
 mode = numbers[0]
 
-for key in freq:
-    if freq[key] > max_count:
-        max_count = freq[key]
+for key, count in freq.items():
+    if count > max_count:
+        max_count = count
         mode = key
 
 # Variance
@@ -74,7 +74,7 @@ print(f"Standard Deviation: {std_dev}")
 end = time.time()
 print(f"Execution time: {end - start} seconds")
 
-with open('statistics.txt', 'w') as file:
+with open('statistics.txt', 'w', encoding='utf-8') as file:
     file.write(f"Mean: {mean}\n")
     file.write(f"Median: {median}\n")
     file.write(f"Mode: {mode}\n")
