@@ -1,3 +1,5 @@
+"""Compute statistics from a file of numbers."""
+
 import sys
 import time
 
@@ -6,20 +8,20 @@ start = time.time()
 filname = sys.argv[1]
 numbers = []
 
-with open(filname, 'r') as file:
+with open(filname, 'r', encoding='utf-8') as file:
     for line in file:
         try:
             number = float(line.strip())
             numbers.append(number)
         except ValueError:
-            print(f"Invalid data skipped:", line.strip()) 
+            print(f"Invalid data skipped:", line.strip())
 
 # Calculate statistics
 # Mean
 total = 0
 for num in numbers:
     total += num
-mean = total / len(numbers) 
+mean = total / len(numbers)
 
 # Median
 n = len(numbers)
@@ -34,7 +36,7 @@ for i in range(n):
 if n % 2 == 0:
     median = (numbers[n // 2 - 1] + numbers[n // 2]) / 2
 else:
-    median = numbers[n // 2]    
+    median = numbers[n // 2]
 
 # Mode
 freq = {}
@@ -65,7 +67,7 @@ std_dev = variance ** 0.5
 
 # Print results
 print(f"Mean: {mean}")
-print(f"Median: {median}")      
+print(f"Median: {median}")
 print(f"Mode: {mode}")
 print(f"Variance: {variance}")
 print(f"Standard Deviation: {std_dev}")
